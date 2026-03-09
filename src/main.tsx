@@ -12,7 +12,7 @@ if (!root) {
 
 createRoot(root).render(
   <StrictMode>
-    <BrowserRouter  basename={import.meta.env.BASE_URL}>
+    <BrowserRouter basename={import.meta.env.BASE_URL}>
       <AppRoutes />
     </BrowserRouter>
   </StrictMode>,
