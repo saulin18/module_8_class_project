@@ -5,7 +5,7 @@ import { Keyboard } from './Keyboard';
 describe('Keyboard', () => {
   it('renders the Keyboard component', () => {
     render(
-      <Keyboard word="hello" pos={0} usedKeys={[]}>
+      <Keyboard keyStates={{}}>
         <div>Children</div>
       </Keyboard>,
     );
@@ -14,7 +14,7 @@ describe('Keyboard', () => {
 
   it('renders children components', () => {
     render(
-      <Keyboard word="hello" pos={0} usedKeys={[]}>
+      <Keyboard keyStates={{}}>
         <div data-testid="children">Test Children</div>
       </Keyboard>,
     );
@@ -23,7 +23,7 @@ describe('Keyboard', () => {
 
   it('renders keyboard keys from KEYBOARD constant', () => {
     render(
-      <Keyboard word="hello" pos={0} usedKeys={[]}>
+      <Keyboard keyStates={{}}>
         <div />
       </Keyboard>,
     );
@@ -36,7 +36,7 @@ describe('Keyboard', () => {
 
   it('applies correct class to used keys', () => {
     render(
-      <Keyboard word="hello" pos={0} usedKeys={['h', 'e']}>
+      <Keyboard keyStates={{ h: 'correct' }}>
         <div />
       </Keyboard>,
     );
@@ -47,7 +47,7 @@ describe('Keyboard', () => {
 
   it('applies exist class for letters in word but not in correct position', () => {
     render(
-      <Keyboard word="hello" pos={1} usedKeys={['l']}>
+      <Keyboard keyStates={{ l: 'exist' }}>
         <div />
       </Keyboard>,
     );

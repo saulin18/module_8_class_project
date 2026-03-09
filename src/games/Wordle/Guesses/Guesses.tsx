@@ -3,10 +3,8 @@ import { initState } from './utils/initialState';
 import type { GuessGrid } from './types';
 import { CellComponent } from './Cell';
 
-interface Props {}
-
-export const Guesses: React.FC<Props> = ({}:Props) => {
-  const [guesses, _setGuesses] = useState<GuessGrid>(() => initState());
+export const Guesses: React.FC = () => {
+  const [guesses] = useState<GuessGrid>(() => initState());
 
   return (
     <div>

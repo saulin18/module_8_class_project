@@ -3,23 +3,17 @@ import { KEYBOARD } from './constants';
 import './Keyboard.css';
 import { Key } from './Key';
 
+type KeyState = 'correct' | 'exist' | 'non-exist';
+
 interface Props {
   children: React.ReactNode;
-  word: string;
-  pos: number;
-  usedKeys: string[];
+  keyStates: Record<string, KeyState>;
 }
 
-export const Keyboard: React.FC<Props> = ({
-  children,
-  word,
-  pos,
-  usedKeys,
-}) => {
-  const currentLetter =
-    pos >= 0 && pos < word.length ? word[pos].toLowerCase() : '';
+export const Keyboard: React.FC<Props> = ({ children, keyStates }) => {
   const createClassName = (letter: string) => {
-    return `${usedKeys.includes(letter.toLowerCase()) ? `used-${word.toLowerCase().includes(letter.toLowerCase()) ? (currentLetter === letter.toLowerCase() ? 'correct' : 'exist') : 'non-exist'}` : ''}`;
+    const state = keyStates[letter.toLowerCase()];
+    return state ? `used-${state}` : '';
   };
 
   return (
