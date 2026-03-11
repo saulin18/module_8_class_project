@@ -1,12 +1,13 @@
 import { Link, Outlet } from 'react-router';
+import './AppLayout.css';
 
 const AppLayout: React.FC = () => {
   return (
     <div>
-      <nav style={{ marginBottom: '1rem' }}>
-        <Link to="/leaderboard" style={{ marginRight: '1rem' }}>
-          Leaderboard
-        </Link>
+      <nav className="navbar">
+        <Link to="/">Home</Link>
+        <Link to="/leaderboard">Leaderboard</Link>
+        <Link to="/play">Games</Link>
       </nav>
       <Outlet />
     </div>
