@@ -2,15 +2,14 @@ import type React from 'react';
 import { KEYBOARD } from './constants';
 import './Keyboard.css';
 import { Key } from './Key';
-
-type KeyState = 'correct' | 'exist' | 'non-exist';
+import { useWordleState } from '../context/useWordle';
 
 interface Props {
   children: React.ReactNode;
-  keyStates: Record<string, KeyState>;
 }
 
-export const Keyboard: React.FC<Props> = ({ children, keyStates }) => {
+export const Keyboard: React.FC<Props> = ({ children }) => {
+  const { keyStates } = useWordleState();
   const createClassName = (letter: string) => {
     const state = keyStates[letter.toLowerCase()];
     return state ? `used-${state}` : '';
@@ -35,7 +34,7 @@ export const Keyboard: React.FC<Props> = ({ children, keyStates }) => {
         ))}
       </div>
       <div className="guess-container">
-        {children}
+        <div className="scrollable-grid">{children}</div>
         <div className="whole-keyboard">
           {KEYBOARD.reduce((acc: string[][], current, index) => {
             if (index % 2 === 0) {
@@ -56,6 +55,10 @@ export const Keyboard: React.FC<Props> = ({ children, keyStates }) => {
               })}
             </div>
           ))}
+          <div className="flex">
+            <Key letter="Backspace" className="key key-wide" />
+            <Key letter="Enter" className="key key-wide" />
+          </div>
         </div>
       </div>
       <div className="keys-2">

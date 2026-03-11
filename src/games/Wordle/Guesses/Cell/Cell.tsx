@@ -1,5 +1,5 @@
-import type { Cell as CellType } from './types';
+import type { Cell } from '#shared/types';
 
-export const CellComponent: React.FC<CellType> = ({ letter, state }) => {
-  return <div className={`box ${state}`}>{letter ? ' ' : letter}</div>;
+export const CellComponent: React.FC<Cell> = ({ letter, state }) => {
+  return <div className={`box ${state}`}>{letter}</div>;
 };

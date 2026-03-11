@@ -1,11 +1,15 @@
 import { describe, it, expect } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import { Keyboard } from './Keyboard';
+import { WordleProvider } from '../context/WordleContext';
+
+const renderWithProvider = (ui: React.ReactElement) =>
+  render(<WordleProvider>{ui}</WordleProvider>);
 
 describe('Keyboard', () => {
   it('renders the Keyboard component', () => {
-    render(
-      <Keyboard keyStates={{}}>
+    renderWithProvider(
+      <Keyboard>
         <div>Children</div>
       </Keyboard>,
     );
@@ -13,8 +17,8 @@ describe('Keyboard', () => {
   });
 
   it('renders children components', () => {
-    render(
-      <Keyboard keyStates={{}}>
+    renderWithProvider(
+      <Keyboard>
         <div data-testid="children">Test Children</div>
       </Keyboard>,
     );
@@ -22,8 +26,8 @@ describe('Keyboard', () => {
   });
 
   it('renders keyboard keys from KEYBOARD constant', () => {
-    render(
-      <Keyboard keyStates={{}}>
+    renderWithProvider(
+      <Keyboard>
         <div />
       </Keyboard>,
     );
@@ -34,25 +38,18 @@ describe('Keyboard', () => {
     expect(buttons.length).toBeGreaterThan(0);
   });
 
-  it('applies correct class to used keys', () => {
-    render(
-      <Keyboard keyStates={{ h: 'correct' }}>
+  it('renders Enter and Backspace keys in the mobile keyboard', () => {
+    renderWithProvider(
+      <Keyboard>
         <div />
       </Keyboard>,
     );
 
-    const correctKeys = document.querySelectorAll('.used-correct');
-    expect(correctKeys.length).toBe(2);
-  });
-
-  it('applies exist class for letters in word but not in correct position', () => {
-    render(
-      <Keyboard keyStates={{ l: 'exist' }}>
-        <div />
-      </Keyboard>,
+    const allButtons = Array.from(
+      document.querySelectorAll('.whole-keyboard button'),
     );
-
-    const existKeys = document.querySelectorAll('.used-exist');
-    expect(existKeys.length).toBe(2);
+    const labels = allButtons.map((b) => b.textContent);
+    expect(labels).toContain('Enter');
+    expect(labels).toContain('Backspace');
   });
 });

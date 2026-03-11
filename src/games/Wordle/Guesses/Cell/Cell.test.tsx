@@ -30,6 +30,6 @@ describe('CellComponent', () => {
   it('renders content based on letter prop', () => {
     render(<CellComponent letter="A" state="none" />);
     const cell = document.querySelector('.box');
-    expect(cell?.textContent).toBe(' ');
+    expect(cell?.textContent).toBe('A');
   });
 });

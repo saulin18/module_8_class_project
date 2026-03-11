@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest';
-import { initState } from './initialState';
 import { ROWS, WORDS_LENGTH } from './constants';
+import { initState } from './initialState';
 
 describe('initState', () => {
   it('should create a grid with correct number of rows', () => {

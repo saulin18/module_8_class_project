@@ -26,48 +26,62 @@ describe('Wordle Game', () => {
     expect(document.querySelector('.whole-keyboard')).toBeInTheDocument();
   });
 
-  it('handles keyboard input for letters', () => {
+  it('shows letters in the grid as they are typed', () => {
     render(<Wordle />);
 
     fireEvent.keyDown(window, { key: 'a' });
 
-    const buttons = document.querySelectorAll('button');
-    const usedButtons = Array.from(buttons).filter((btn) =>
-      btn.className.includes('used-'),
-    );
-    expect(usedButtons.length).toBeGreaterThan(0);
+    const cells = document.querySelectorAll('.box');
+    expect(cells[0].textContent).toBe('A');
   });
 
   it('does not handle keys when alt, ctrl, meta or shift is pressed', () => {
     render(<Wordle />);
-
-    const initialUsedKeys = document.querySelectorAll(
-      'button[class*="used-"]',
-    ).length;
 
     fireEvent.keyDown(window, { key: 'a', altKey: true });
     fireEvent.keyDown(window, { key: 'b', ctrlKey: true });
     fireEvent.keyDown(window, { key: 'c', metaKey: true });
     fireEvent.keyDown(window, { key: 'd', shiftKey: true });
 
-    expect(document.querySelectorAll('button[class*="used-"]').length).toBe(
-      initialUsedKeys,
-    );
+    const cells = document.querySelectorAll('.box');
+    expect(cells[0].textContent).toBe('');
   });
 
-  it('handles multiple letter inputs', () => {
+  it('updates keyboard key states after submitting a guess', () => {
+    render(<Wordle />);
+
+    // Type 'hello' (the answer) and submit
+    fireEvent.keyDown(window, { key: 'h' });
+    fireEvent.keyDown(window, { key: 'e' });
+    fireEvent.keyDown(window, { key: 'l' });
+    fireEvent.keyDown(window, { key: 'l' });
+    fireEvent.keyDown(window, { key: 'o' });
+    fireEvent.keyDown(window, { key: 'Enter' });
+
+    const usedButtons = document.querySelectorAll('button[class*="used-"]');
+    expect(usedButtons.length).toBeGreaterThan(0);
+  });
+
+  it('removes a letter when Backspace is pressed', () => {
     render(<Wordle />);
 
     fireEvent.keyDown(window, { key: 'a' });
-    fireEvent.keyDown(window, { key: 'b' });
-    fireEvent.keyDown(window, { key: 'c' });
-    fireEvent.keyDown(window, { key: 'd' });
-    fireEvent.keyDown(window, { key: 'e' });
+    fireEvent.keyDown(window, { key: 'Backspace' });
 
-    const buttons = document.querySelectorAll('button');
-    const usedButtons = Array.from(buttons).filter((btn) =>
-      btn.className.includes('used-'),
-    );
-    expect(usedButtons.length).toBeGreaterThanOrEqual(5);
+    const cells = document.querySelectorAll('.box');
+    expect(cells[0].textContent).toBe('');
+  });
+
+  it('shows a win message when the correct word is guessed', () => {
+    render(<Wordle />);
+
+    fireEvent.keyDown(window, { key: 'h' });
+    fireEvent.keyDown(window, { key: 'e' });
+    fireEvent.keyDown(window, { key: 'l' });
+    fireEvent.keyDown(window, { key: 'l' });
+    fireEvent.keyDown(window, { key: 'o' });
+    fireEvent.keyDown(window, { key: 'Enter' });
+
+    expect(document.body.textContent).toContain('You won!');
   });
 });

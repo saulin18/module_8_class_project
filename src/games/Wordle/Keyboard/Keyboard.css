@@ -31,6 +31,24 @@
   cursor: pointer;
 }
 
+.box.correct {
+  background-color: rgb(135, 236, 95);
+  color: white;
+}
+.box.exist {
+  background-color: rgb(214, 140, 55);
+  color: white;
+}
+.box.non-exist {
+  background-color: rgb(95, 73, 73);
+  color: white;
+}
+
+.key-wide {
+  min-width: 55px;
+  font-size: 11px;
+}
+
 .used-non-exist {
   background-color: rgb(95, 73, 73);
   color: white;
@@ -64,8 +82,12 @@
   }
   .key {
     height: 5vh;
-    width: 10vw;
+    width: 8vw;
     padding: 0px;
     font-size: medium;
+  }
+  .scrollable-grid {
+    max-height: 40vh;
+    overflow-y: auto;
   }
 }

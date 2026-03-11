@@ -1,27 +1,31 @@
 import { describe, it, expect } from 'vitest';
 import { render } from '@testing-library/react';
 import { Guesses } from './Guesses';
+import { WordleProvider } from '../context/WordleContext';
+
+const renderWithProvider = (ui: React.ReactElement) =>
+  render(<WordleProvider>{ui}</WordleProvider>);
 
 describe('Guesses', () => {
   it('renders the Guesses component', () => {
-    render(<Guesses />);
+    renderWithProvider(<Guesses />);
     expect(document.querySelector('.box')).toBeInTheDocument();
   });
 
   it('renders 6 rows for guesses', () => {
-    render(<Guesses />);
+    renderWithProvider(<Guesses />);
     const rows = document.querySelectorAll('.flex');
     expect(rows.length).toBe(6);
   });
 
   it('renders 5 cells per row', () => {
-    render(<Guesses />);
+    renderWithProvider(<Guesses />);
     const cells = document.querySelectorAll('.box');
     expect(cells.length).toBe(30);
   });
 
   it('initializes all cells with empty letter and none state', () => {
-    render(<Guesses />);
+    renderWithProvider(<Guesses />);
     const cells = document.querySelectorAll('.box');
     cells.forEach((cell) => {
       expect(cell).toHaveClass('none');

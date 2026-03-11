@@ -8,7 +8,7 @@ interface Props {
 export const Key: React.FC<Props> = ({ letter, className }) => {
   return (
     <button className={className} onClick={() => simulateKeyDown(letter)}>
-      {letter}
+      {letter === 'Backspace' ? '<--' : letter}
     </button>
   );
 };
