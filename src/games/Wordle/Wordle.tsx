@@ -1,8 +1,8 @@
 import { useEffect } from 'react';
-import { WordleProvider } from './context/WordleContext';
+import { WordleContext } from './context';
 import { Guesses } from './Guesses';
 import { Keyboard } from './Keyboard';
-import { useWordleDispatch, useWordleState } from './context/useWordle';
+import { useWordleDispatch, useWordleState } from './context';
 import { ScoreSubmit } from '#shared/components/index';
 import { ROWS } from '#shared/constants';
 
@@ -62,9 +62,9 @@ const WordleGame: React.FC = () => {
 };
 
 const Wordle: React.FC = () => (
-  <WordleProvider>
+  <WordleContext>
     <WordleGame />
-  </WordleProvider>
+  </WordleContext>
 );
 
 export default Wordle;

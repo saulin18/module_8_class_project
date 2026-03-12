@@ -1,10 +1,10 @@
 import { describe, it, expect } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import { Keyboard } from './Keyboard';
-import { WordleProvider } from '../context/WordleContext';
+import { WordleContext } from '../context';
 
 const renderWithProvider = (ui: React.ReactElement) =>
-  render(<WordleProvider>{ui}</WordleProvider>);
+  render(<WordleContext>{ui}</WordleContext>);
 
 describe('Keyboard', () => {
   it('renders the Keyboard component', () => {

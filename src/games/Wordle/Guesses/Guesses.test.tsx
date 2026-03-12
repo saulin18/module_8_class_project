@@ -1,10 +1,10 @@
 import { describe, it, expect } from 'vitest';
 import { render } from '@testing-library/react';
 import { Guesses } from './Guesses';
-import { WordleProvider } from '../context/WordleContext';
+import { WordleContext } from '../context';
 
 const renderWithProvider = (ui: React.ReactElement) =>
-  render(<WordleProvider>{ui}</WordleProvider>);
+  render(<WordleContext>{ui}</WordleContext>);
 
 describe('Guesses', () => {
   it('renders the Guesses component', () => {

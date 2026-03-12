@@ -2,7 +2,7 @@ import type React from 'react';
 import { KEYBOARD } from './constants';
 import './Keyboard.css';
 import { Key } from './Key';
-import { useWordleState } from '../context/useWordle';
+import { useWordleState } from '../context';
 
 interface Props {
   children: React.ReactNode;

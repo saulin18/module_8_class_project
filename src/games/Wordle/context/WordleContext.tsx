@@ -6,8 +6,8 @@ import {
 } from './WordleProvider';
 import { ROWS, WORDS_LENGTH } from '#shared/constants';
 import { initState } from '#shared/initialState';
+import type { CellState } from '#shared/types';
 
-export type CellState = 'correct' | 'exist' | 'non-exist' | 'none';
 export type KeyState = 'correct' | 'exist' | 'non-exist';
 
 const STATE_PRIORITY: Record<KeyState, number> = {
@@ -49,7 +49,7 @@ function evaluateGuess(word: string, guessLetters: string[]): CellState[] {
   return result;
 }
 
-export const WordleProvider: React.FC<{ children: React.ReactNode }> = ({
+export const WordleContext: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
   const [state, setState] = useState<WordleState>({

@@ -1,4 +1,4 @@
-import { useWordleState } from '../context/useWordle';
+import { useWordleState } from '../context';
 import { CellComponent } from './Cell';
 
 export const Guesses: React.FC = () => {
