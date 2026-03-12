@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Link } from 'react-router';
 import { saveScore } from '#shared/storage';
-import './ScoreSubmit.css';
+import styles from './ScoreSubmit.module.css';
 
 type Props = {
   gameSlug: string;
@@ -22,19 +22,19 @@ export const ScoreSubmit: React.FC<Props> = ({ gameSlug, score, onDone }) => {
 
   if (saved) {
     return (
-      <div className="score-submit">
-        <p className="score-submit__saved">Score saved!</p>
-        <p className="score-submit__points">{score} pts</p>
-        <div className="score-submit__actions">
+      <div className={styles['score-submit']}>
+        <p className={styles['score-submit__saved']}>Score saved!</p>
+        <p className={styles['score-submit__points']}>{score} pts</p>
+        <div className={styles['score-submit__actions']}>
           <button
-            className="score-submit__btn score-submit__btn--primary"
+            className={`${styles['score-submit__btn']} ${styles['score-submit__btn--primary']}`}
             onClick={onDone}
           >
             Play Again
           </button>
           <Link
             to={`/leaderboard/${gameSlug}`}
-            className="score-submit__btn score-submit__btn--secondary"
+            className={`${styles['score-submit__btn']} ${styles['score-submit__btn--secondary']}`}
           >
             View Leaderboard
           </Link>
@@ -44,12 +44,12 @@ export const ScoreSubmit: React.FC<Props> = ({ gameSlug, score, onDone }) => {
   }
 
   return (
-    <div className="score-submit">
-      <p className="score-submit__label">Your score</p>
-      <p className="score-submit__points">{score} pts</p>
-      <form className="score-submit__form" onSubmit={handleSubmit}>
+    <div className={styles['score-submit']}>
+      <p className={styles['score-submit__label']}>Your score</p>
+      <p className={styles['score-submit__points']}>{score} pts</p>
+      <form className={styles['score-submit__form']} onSubmit={handleSubmit}>
         <input
-          className="score-submit__input"
+          className={styles['score-submit__input']}
           type="text"
           placeholder="Enter your name"
           value={name}
@@ -58,7 +58,7 @@ export const ScoreSubmit: React.FC<Props> = ({ gameSlug, score, onDone }) => {
           autoFocus
         />
         <button
-          className="score-submit__btn score-submit__btn--primary"
+          className={`${styles['score-submit__btn']} ${styles['score-submit__btn--primary']}`}
           type="submit"
           disabled={!name.trim()}
         >
@@ -66,7 +66,7 @@ export const ScoreSubmit: React.FC<Props> = ({ gameSlug, score, onDone }) => {
         </button>
       </form>
       <button
-        className="score-submit__btn score-submit__btn--ghost"
+        className={`${styles['score-submit__btn']} ${styles['score-submit__btn--ghost']}`}
         onClick={onDone}
       >
         Skip

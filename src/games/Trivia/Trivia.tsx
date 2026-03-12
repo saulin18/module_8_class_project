@@ -1,6 +1,6 @@
 import { Suspense, use, useCallback, useState } from 'react';
 import { ErrorBoundary } from 'react-error-boundary';
-import './Trivia.css';
+import styles from './Trivia.module.css';
 import { TriviaGame } from './TriviaGame';
 import { getQuestions, type Question } from './api';
 
@@ -30,12 +30,14 @@ const Trivia: React.FC = () => {
 
   return (
     <Suspense
-      fallback={<div className="trivia-loading">Loading questions…</div>}
+      fallback={
+        <div className={styles['trivia-loading']}>Loading questions…</div>
+      }
     >
       <ErrorBoundary
         onReset={refresh}
         fallbackRender={({ error, resetErrorBoundary }) => (
-          <div className="trivia-error">
+          <div className={styles['trivia-error']}>
             <p>Error loading questions: {error.message}</p>
             <button onClick={resetErrorBoundary}>Try again</button>
           </div>

@@ -2,6 +2,7 @@ import { describe, it, expect } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import { Keyboard } from './Keyboard';
 import { WordleContext } from '../context';
+import styles from './Keyboard.module.css';
 
 const renderWithProvider = (ui: React.ReactElement) =>
   render(<WordleContext>{ui}</WordleContext>);
@@ -33,7 +34,7 @@ describe('Keyboard', () => {
     );
 
     const buttons = document.querySelectorAll(
-      '.keys-1 button, .keys-2 button, .whole-keyboard button',
+      `.${styles['keys-1']} button, .${styles['keys-2']} button, .${styles['whole-keyboard']} button`,
     );
     expect(buttons.length).toBeGreaterThan(0);
   });
@@ -46,7 +47,7 @@ describe('Keyboard', () => {
     );
 
     const allButtons = Array.from(
-      document.querySelectorAll('.whole-keyboard button'),
+      document.querySelectorAll(`.${styles['whole-keyboard']} button`),
     );
     const labels = allButtons.map((b) => b.textContent);
     expect(labels).toContain('↵');
