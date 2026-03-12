@@ -3,6 +3,7 @@
   position: absolute;
   top: 0;
   left: 0;
+  color: #333;
   padding: var(--separation);
   display: flex;
   justify-content: center;
