@@ -1,5 +1,6 @@
 .games-wrapper {
   --separation: 40px;
+  color: inherit;
   position: absolute;
   top: 0;
   left: 0;

@@ -1,5 +1,6 @@
 import { useWordleState } from '../context';
 import { CellComponent } from './Cell';
+import keyboardStyles from '../Keyboard/Keyboard.module.css';
 
 export const Guesses: React.FC = () => {
   const { guesses } = useWordleState();
@@ -13,6 +14,7 @@ export const Guesses: React.FC = () => {
               letter={cell.letter}
               state={cell.state}
               key={`${cell.letter}-${i}-${index}`}
+              className={`${keyboardStyles.box} ${keyboardStyles[cell.state] ?? ''}`}
             />
           ))}
         </div>
