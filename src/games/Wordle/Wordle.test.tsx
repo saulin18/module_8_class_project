@@ -1,6 +1,7 @@
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
 import { render, fireEvent } from '@testing-library/react';
 import Wordle from './Wordle';
+import keyboardStyles from './Keyboard/Keyboard.module.css';
 
 describe('Wordle Game', () => {
   beforeEach(() => {
@@ -23,7 +24,9 @@ describe('Wordle Game', () => {
 
   it('renders the Keyboard component', () => {
     render(<Wordle />);
-    expect(document.querySelector('.whole-keyboard')).toBeInTheDocument();
+    expect(
+      document.querySelector(`.${keyboardStyles['whole-keyboard']}`),
+    ).toBeInTheDocument();
   });
 
   it('shows letters in the grid as they are typed', () => {

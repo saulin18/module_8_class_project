@@ -1,6 +1,7 @@
 import { describe, it, expect, vi } from 'vitest';
 import { render, screen, fireEvent } from '@testing-library/react';
 import { TriviaGame } from './TriviaGame';
+import styles from './Trivia.module.css';
 import type { Question } from './api';
 
 const mockQuestions: Question[] = [
@@ -37,6 +38,6 @@ describe('TriviaGame', () => {
     render(<TriviaGame questions={mockQuestions} onRestart={vi.fn()} />);
     const correctBtn = screen.getByRole('button', { name: '4' });
     fireEvent.click(correctBtn);
-    expect(correctBtn).toHaveClass('correct');
+    expect(correctBtn).toHaveClass(styles.correct);
   });
 });
