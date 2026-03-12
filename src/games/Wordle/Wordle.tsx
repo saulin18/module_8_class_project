@@ -5,7 +5,7 @@ import { Keyboard } from './Keyboard';
 import { useWordleDispatch, useWordleState } from './context';
 import { ScoreSubmit } from '#shared/components/index';
 import { ROWS } from '#shared/constants';
-import './Wordle.module.css'
+import './Wordle.module.css';
 
 const WordleGame: React.FC = () => {
   const { addLetter, removeLetter, submitGuess, restartGame } =
