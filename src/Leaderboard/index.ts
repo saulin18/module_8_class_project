@@ -1,2 +1,2 @@
-export { default as LeaderboardList } from './LeaderboardList';
-export { default as LeaderboardDetail } from './LeaderboardDetail';
+export { LeaderboardList } from './LeaderboardList';
+export { LeaderboardDetail } from './LeaderboardDetail';

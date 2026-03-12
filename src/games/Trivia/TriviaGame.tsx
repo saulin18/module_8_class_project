@@ -27,7 +27,8 @@ export const TriviaGame: React.FC<{
   const nextBtnRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
-    if (!answerSubmitted || !containerRef.current || !nextBtnRef.current) return;
+    if (!answerSubmitted || !containerRef.current || !nextBtnRef.current)
+      return;
     const container = containerRef.current;
     const btn = nextBtnRef.current;
     const target = btn.offsetTop + btn.offsetHeight - container.clientHeight;
@@ -72,7 +73,11 @@ export const TriviaGame: React.FC<{
       </div>
 
       {answerSubmitted && (
-        <button onClick={nextQuestion} className="trivia-next-btn" ref={nextBtnRef}>
+        <button
+          onClick={nextQuestion}
+          className="trivia-next-btn"
+          ref={nextBtnRef}
+        >
           {isLastQuestion ? 'See Results' : 'Next Question'}
         </button>
       )}

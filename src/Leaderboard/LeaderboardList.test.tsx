@@ -1,7 +1,7 @@
 import { describe, it, expect } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import { BrowserRouter } from 'react-router';
-import LeaderboardList from './LeaderboardList';
+import { LeaderboardList } from './LeaderboardList';
 
 const renderWithRouter = (component: React.ReactElement) => {
   return render(<BrowserRouter>{component}</BrowserRouter>);

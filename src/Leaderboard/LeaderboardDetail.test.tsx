@@ -1,7 +1,7 @@
 import { describe, it, expect } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import { Routes, Route, MemoryRouter } from 'react-router';
-import LeaderboardDetail from './LeaderboardDetail';
+import { LeaderboardDetail } from './LeaderboardDetail';
 
 const renderWithRouter = (component: React.ReactElement) => {
   return render(

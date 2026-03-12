@@ -2,7 +2,7 @@ import { Link } from 'react-router';
 import games from '../games';
 import './HomePage.css';
 
-export default function HomePage() {
+export const HomePage: React.FC = () => {
   const gameCount = Object.keys(games).length;
 
   return (
@@ -35,4 +35,4 @@ export default function HomePage() {
       </div>
     </div>
   );
-}
+};

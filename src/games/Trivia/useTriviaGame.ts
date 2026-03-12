@@ -2,7 +2,9 @@ import { useState } from 'react';
 import type { Question } from './api';
 
 function shuffleAnswers(q: Question): string[] {
-  return [q.correct_answer, ...q.incorrect_answers].sort(() => Math.random() - 0.5);
+  return [q.correct_answer, ...q.incorrect_answers].sort(
+    () => Math.random() - 0.5,
+  );
 }
 
 export function useTriviaGame(questions: Question[]) {
@@ -11,7 +13,9 @@ export function useTriviaGame(questions: Question[]) {
   const [score, setScore] = useState(0);
   const [showResult, setShowResult] = useState(false);
   const [answerSubmitted, setAnswerSubmitted] = useState(false);
-  const [allAnswers, setAllAnswers] = useState<string[]>(() => shuffleAnswers(questions[0]));
+  const [allAnswers, setAllAnswers] = useState<string[]>(() =>
+    shuffleAnswers(questions[0]),
+  );
 
   const question = questions[currentQuestion];
 

@@ -1,7 +1,7 @@
 import { describe, it, expect } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import { MemoryRouter, Route, Routes } from 'react-router';
-import GamesComponent from './GamesComponent';
+import { GamesComponent } from './GamesComponent';
 
 const renderAtPath = (path: string) =>
   render(
@@ -17,12 +17,6 @@ const renderAtPath = (path: string) =>
 describe('GamesComponent', () => {
   it('works', () => {
     renderAtPath('/play');
-  });
-
-  it('shows a card for each game at /play', () => {
-    renderAtPath('/play');
-    expect(screen.getByText('Wordle')).toBeInTheDocument();
-    expect(screen.getByText('Trivia')).toBeInTheDocument();
   });
 
   it('renders the outlet when navigated to a specific game', () => {

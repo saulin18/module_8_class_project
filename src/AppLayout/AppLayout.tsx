@@ -1,7 +1,7 @@
 import { Link, Outlet } from 'react-router';
 import './AppLayout.css';
 
-const AppLayout: React.FC = () => {
+export const AppLayout: React.FC = () => {
   return (
     <div>
       <nav className="navbar">
@@ -13,5 +13,3 @@ const AppLayout: React.FC = () => {
     </div>
   );
 };
-
-export default AppLayout;

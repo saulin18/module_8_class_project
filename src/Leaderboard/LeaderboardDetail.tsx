@@ -1,9 +1,9 @@
 import { Link, useParams } from 'react-router';
-import { getStoredScores } from '../shared/storage';
+import { useGameLeaderboard } from './useLeaderboard';
 
-const LeaderboardDetail: React.FC = () => {
+export const LeaderboardDetail: React.FC = () => {
   const { slug } = useParams();
-  const leaderboard = slug ? getStoredScores(slug) : undefined;
+  const leaderboard = useGameLeaderboard(slug);
 
   if (!leaderboard) {
     return (
@@ -33,5 +33,3 @@ const LeaderboardDetail: React.FC = () => {
     </>
   );
 };
-
-export default LeaderboardDetail;

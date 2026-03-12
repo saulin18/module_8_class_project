@@ -1,9 +1,9 @@
 import { Link } from 'react-router';
 import './LeaderboardList.css';
-import { loadLeaderboardData } from '../shared/storage';
+import { useAllLeaderboards } from './useLeaderboard';
 
-const LeaderboardList: React.FC = () => {
-  const gamesWithScores = loadLeaderboardData();
+export const LeaderboardList: React.FC = () => {
+  const gamesWithScores = useAllLeaderboards();
 
   return (
     <>
@@ -25,5 +25,3 @@ const LeaderboardList: React.FC = () => {
     </>
   );
 };
-
-export default LeaderboardList;

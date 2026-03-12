@@ -1,6 +1,6 @@
 import { describe, expect, it, vi } from 'vitest';
 import { render, screen } from '@testing-library/react';
-import AppLayout from './AppLayout';
+import { AppLayout } from './AppLayout';
 
 vi.mock('react-router', () => ({
   Link: ({
