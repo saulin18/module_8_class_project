@@ -32,15 +32,9 @@ const WordleGame: React.FC = () => {
 
   return (
     <div className="max-w-screen overflow-x-auto">
-      {gameStatus === 'won' && (
-        <p style={{ textAlign: 'center', fontWeight: 'bold', color: 'green' }}>
-          You won!
-        </p>
-      )}
+      {gameStatus === 'won' && <p className="won">You won!</p>}
       {gameStatus === 'lost' && (
-        <p style={{ textAlign: 'center', fontWeight: 'bold', color: 'red' }}>
-          Game over! The word was: {word}
-        </p>
+        <p className="lost">Game over! The word was: {word}</p>
       )}
       <Keyboard>
         <Guesses />

@@ -1,0 +1,117 @@
+.score-submit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1.5rem;
+  border: 2px solid var(--border-color);
+  border-radius: 12px;
+  background: white;
+  max-width: 320px;
+  margin: 1rem auto;
+}
+
+.score-submit__label {
+  margin: 0;
+  font-size: 0.85rem;
+  color: #666;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.score-submit__points {
+  margin: 0;
+  font-size: 2rem;
+  font-weight: bold;
+  color: var(--border-color);
+}
+
+.score-submit__saved {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #2e7d32;
+}
+
+.score-submit__form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 100%;
+}
+
+.score-submit__input {
+  padding: 0.5rem 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.score-submit__input:focus {
+  outline: none;
+  border-color: var(--border-color);
+  box-shadow: 0 0 0 2px rgba(108, 99, 255, 0.2);
+}
+
+.score-submit__actions {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.score-submit__btn {
+  padding: 0.5rem 1.25rem;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  cursor: pointer;
+  border: none;
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
+}
+
+.score-submit__btn--primary {
+  background: var(--border-color);
+  color: white;
+}
+
+.score-submit__btn--primary:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.score-submit__btn--secondary {
+  background: transparent;
+  border: 1px solid var(--border-color);
+  color: var(--border-color);
+}
+
+.score-submit__btn--ghost {
+  background: transparent;
+  color: #999;
+  font-size: 0.85rem;
+}
+
+.score-submit__btn--ghost:hover {
+  color: #555;
+}
+
+@media (prefers-color-scheme: dark) {
+  .score-submit {
+    background: #1a1a2e;
+    border-color: var(--border-color);
+  }
+
+  .score-submit__label {
+    color: #aaa;
+  }
+
+  .score-submit__input {
+    background: #111;
+    color: white;
+    border-color: #444;
+  }
+}
