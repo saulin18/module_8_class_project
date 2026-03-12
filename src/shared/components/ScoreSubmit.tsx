@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Link } from 'react-router';
 import { saveScore } from '#shared/storage';
-import './ScoreSubmit.css';
+import './ScoreSubmit.module.css';
 
 type Props = {
   gameSlug: string;

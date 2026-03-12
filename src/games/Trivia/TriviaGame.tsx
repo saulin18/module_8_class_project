@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import './Trivia.css';
+import './Trivia.module.css';
 import type { Question } from './api';
 import { ScoreSubmit } from '#shared/components/index';
 import { useTriviaGame } from './useTriviaGame';

@@ -1,6 +1,6 @@
 import { Outlet } from 'react-router';
 
-import './GamesComponent.css';
+import './GamesComponent.module.css';
 
 export const GamesComponent: React.FC = () => {
   return (

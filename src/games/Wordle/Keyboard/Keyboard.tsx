@@ -1,6 +1,6 @@
 import type React from 'react';
 import { KEYBOARD } from './constants';
-import './Keyboard.css';
+import './Keyboard.module.css';
 import { Key } from './Key';
 import { useWordleState } from '../context';
 

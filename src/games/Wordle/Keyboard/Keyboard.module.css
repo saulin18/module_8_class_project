@@ -1,12 +1,15 @@
 .keys-1 {
   display: block;
 }
+
 .keys-2 {
   display: block;
 }
+
 .whole-keyboard {
   display: none;
 }
+
 .little-key-button {
   width: 35px;
   height: 35px;
@@ -26,6 +29,7 @@
   align-items: center;
   justify-content: center;
 }
+
 .box:hover {
   background-color: #e9e8e8;
   cursor: pointer;
@@ -35,6 +39,7 @@
   background-color: rgb(135, 236, 95);
   color: white;
 }
+
 .box.exist {
   background-color: rgb(214, 140, 55);
   color: white;
@@ -54,10 +59,12 @@
   color: white;
   cursor: not-allowed;
 }
+
 .used-exist {
   background-color: rgb(214, 140, 55);
   color: white;
 }
+
 .used-correct {
   background-color: rgb(135, 236, 95);
   color: white;
@@ -67,25 +74,30 @@
   .keys-1 {
     display: none;
   }
+
   .keys-2 {
     display: none;
   }
+
   .whole-keyboard {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
   }
+
   .box {
     height: 4vh;
     width: 4vw;
   }
+
   .key {
     height: 5vh;
     width: 8vw;
     padding: 0px;
     font-size: medium;
   }
+  
   .scrollable-grid {
     max-height: 40vh;
     overflow-y: auto;

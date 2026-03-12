@@ -1,6 +1,6 @@
 import { Suspense, use, useCallback, useState } from 'react';
 import { ErrorBoundary } from 'react-error-boundary';
-import './Trivia.css';
+import './Trivia.module.css';
 import { TriviaGame } from './TriviaGame';
 import { getQuestions, type Question } from './api';
 

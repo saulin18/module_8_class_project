@@ -1,5 +1,5 @@
 import { Link, Outlet } from 'react-router';
-import './AppLayout.css';
+import './AppLayout.module.css';
 
 export const AppLayout: React.FC = () => {
   return (

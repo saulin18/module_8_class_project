@@ -1,5 +1,5 @@
 import { Link } from 'react-router';
-import './LeaderboardList.css';
+import './LeaderboardList.module.css';
 import { useAllLeaderboards } from './useLeaderboard';
 
 export const LeaderboardList: React.FC = () => {

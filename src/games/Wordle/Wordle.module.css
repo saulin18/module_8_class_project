@@ -1,0 +1,11 @@
+.won {
+  text-align: center;
+  font-weight: bold;
+  color: green;
+}
+
+.lost {
+  text-align: center;
+  font-weight: bold;
+  color: red;
+}

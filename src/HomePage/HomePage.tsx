@@ -1,6 +1,6 @@
 import { Link } from 'react-router';
 import games from '../games';
-import './HomePage.css';
+import './HomePage.module.css';
 
 export const HomePage: React.FC = () => {
   const gameCount = Object.keys(games).length;
