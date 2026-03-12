@@ -1,5 +1,5 @@
 import { Link } from 'react-router';
-import './LeaderboardList.module.css';
+import styles from './LeaderboardList.module.css';
 import { useAllLeaderboards } from './useLeaderboard';
 
 export const LeaderboardList: React.FC = () => {
@@ -9,7 +9,7 @@ export const LeaderboardList: React.FC = () => {
     <>
       <h1>Leaderboard</h1>
       {Object.entries(gamesWithScores).map(([gameSlug, scores]) => (
-        <div key={gameSlug} className="list">
+        <div key={gameSlug} className={styles.list}>
           <h2>
             <Link to={`/leaderboard/${gameSlug}`}>{gameSlug}</Link>
           </h2>

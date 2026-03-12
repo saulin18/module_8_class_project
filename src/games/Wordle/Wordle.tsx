@@ -5,7 +5,7 @@ import { Keyboard } from './Keyboard';
 import { useWordleDispatch, useWordleState } from './context';
 import { ScoreSubmit } from '#shared/components/index';
 import { ROWS } from '#shared/constants';
-import './Wordle.module.css';
+import styles from './Wordle.module.css';
 
 const WordleGame: React.FC = () => {
   const { addLetter, removeLetter, submitGuess, restartGame } =
@@ -43,13 +43,13 @@ const WordleGame: React.FC = () => {
     <div className="max-w-screen overflow-x-auto">
       {gameStatus === 'won' && (
         <div className="wordle-result">
-          <p className="won">You won!</p>
+          <p className={styles.won}>You won!</p>
           <ScoreSubmit gameSlug="wordle" score={score} onDone={restartGame} />
         </div>
       )}
       {gameStatus === 'lost' && (
         <div className="wordle-result">
-          <p className="lost">Game over! The word was: {word}</p>
+          <p className={styles.lost}>Game over! The word was: {word}</p>
           <ScoreSubmit gameSlug="wordle" score={score} onDone={restartGame} />
         </div>
       )}

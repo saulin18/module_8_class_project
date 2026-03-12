@@ -40,16 +40,18 @@ export function useTriviaGame(questions: Question[]) {
     }
   };
 
-  const getAnswerClass = (answer: string): string => {
+  const getAnswerState = (
+    answer: string,
+  ): 'correct' | 'incorrect' | 'selected' | '' => {
     const isCorrect = answer === question.correct_answer;
     const isSelected = answer === selectedAnswer;
     if (answerSubmitted) {
-      if (isCorrect) return 'trivia-answer-btn correct';
-      if (isSelected) return 'trivia-answer-btn incorrect';
+      if (isCorrect) return 'correct';
+      if (isSelected) return 'incorrect';
     } else if (isSelected) {
-      return 'trivia-answer-btn selected';
+      return 'selected';
     }
-    return 'trivia-answer-btn';
+    return '';
   };
 
   return {
@@ -63,6 +65,6 @@ export function useTriviaGame(questions: Question[]) {
     isLastQuestion: currentQuestion === questions.length - 1,
     handleAnswer,
     nextQuestion,
-    getAnswerClass,
+    getAnswerState,
   };
 }
