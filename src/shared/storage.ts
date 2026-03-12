@@ -1,10 +1,10 @@
-import type { Score } from './data';
+import type { Score } from './types';
 
 const STORAGE_KEY = 'gamehub_leaderboard';
 
 type StorageData = Record<string, Score[]>;
 
-function load(): StorageData {
+export function loadLeaderboardData(): StorageData {
   try {
     const raw = localStorage.getItem(STORAGE_KEY);
     return raw ? (JSON.parse(raw) as StorageData) : {};
@@ -22,7 +22,7 @@ export function saveScore(
   playerName: string,
   score: number,
 ): void {
-  const data = load();
+  const data = loadLeaderboardData();
   const scores = data[gameSlug] ?? [];
   scores.push({ playerName, score });
   scores.sort((a, b) => b.score - a.score);
@@ -31,7 +31,7 @@ export function saveScore(
 }
 
 export function getStoredScores(gameSlug: string): Score[] {
-  return load()[gameSlug] ?? [];
+  return loadLeaderboardData()[gameSlug] ?? [];
 }
 
 export function hasStoredScores(gameSlug: string): boolean {

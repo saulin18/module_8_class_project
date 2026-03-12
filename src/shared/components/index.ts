@@ -1,0 +1,1 @@
+export { ScoreSubmit } from './ScoreSubmit';

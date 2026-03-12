@@ -15,6 +15,7 @@ export type WordleDispatch = {
   addLetter: (letter: string) => void;
   removeLetter: () => void;
   submitGuess: () => void;
+  restartGame: () => void;
 };
 
 export const WordleStateContext = createContext<WordleState | null>(null);

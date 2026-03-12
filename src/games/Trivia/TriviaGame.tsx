@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import './Trivia.css';
 import type { Question } from './api';
+import { ScoreSubmit } from '#shared/components/index';
 
 function smoothScrollTo(
   element: HTMLElement,
@@ -84,11 +85,13 @@ export const TriviaGame: React.FC<{
       <div className="trivia-result">
         <h2>Game Over!</h2>
         <p className="trivia-score">
-          Your score: {score} / {questions.length}
+          {score} / {questions.length} correct
         </p>
-        <button onClick={onRestart} className="trivia-play-again">
-          Play Again
-        </button>
+        <ScoreSubmit
+          gameSlug="trivia"
+          score={Math.round((score / questions.length) * 1000)}
+          onDone={onRestart}
+        />
       </div>
     );
   }

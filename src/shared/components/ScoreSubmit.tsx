@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Link } from 'react-router';
-import { saveScore } from './storage';
+import { saveScore } from '#shared/storage';
 import './ScoreSubmit.css';
 
 type Props = {

@@ -95,6 +95,17 @@ export const WordleProvider: React.FC<{ children: React.ReactNode }> = ({
     });
   }, []);
 
+  const restartGame = useCallback(() => {
+    setState({
+      guesses: initState(),
+      currentRow: 0,
+      currentCol: 0,
+      gameStatus: 'playing',
+      keyStates: {},
+      word: WORD,
+    });
+  }, []);
+
   const submitGuess = useCallback(() => {
     setState((prev) => {
       if (prev.gameStatus !== 'playing') return prev;
@@ -141,7 +152,7 @@ export const WordleProvider: React.FC<{ children: React.ReactNode }> = ({
   return (
     <WordleStateContext.Provider value={state}>
       <WordleDispatchContext.Provider
-        value={{ addLetter, removeLetter, submitGuess }}
+        value={{ addLetter, removeLetter, submitGuess, restartGame }}
       >
         {children}
       </WordleDispatchContext.Provider>

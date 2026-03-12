@@ -1,9 +1,9 @@
 import { Link, useParams } from 'react-router';
-import { getGameLeaderboard } from './data';
+import { getStoredScores } from '../shared/storage';
 
 const LeaderboardDetail: React.FC = () => {
   const { slug } = useParams();
-  const leaderboard = slug ? getGameLeaderboard(slug) : undefined;
+  const leaderboard = slug ? getStoredScores(slug) : undefined;
 
   if (!leaderboard) {
     return (
@@ -19,9 +19,9 @@ const LeaderboardDetail: React.FC = () => {
 
   return (
     <>
-      <h1>{leaderboard.gameTitle} Leaderboard</h1>
+      <h1>Leaderboard</h1>
       <ol>
-        {leaderboard.scores.map((score, index) => (
+        {leaderboard.map((score, index) => (
           <li key={index}>
             {score.playerName}: {score.score}
           </li>
