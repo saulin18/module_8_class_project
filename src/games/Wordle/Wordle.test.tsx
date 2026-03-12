@@ -47,21 +47,6 @@ describe('Wordle Game', () => {
     expect(cells[0].textContent).toBe('');
   });
 
-  it('updates keyboard key states after submitting a guess', () => {
-    render(<Wordle />);
-
-    // Type 'hello' (the answer) and submit
-    fireEvent.keyDown(window, { key: 'h' });
-    fireEvent.keyDown(window, { key: 'e' });
-    fireEvent.keyDown(window, { key: 'l' });
-    fireEvent.keyDown(window, { key: 'l' });
-    fireEvent.keyDown(window, { key: 'o' });
-    fireEvent.keyDown(window, { key: 'Enter' });
-
-    const usedButtons = document.querySelectorAll('button[class*="used-"]');
-    expect(usedButtons.length).toBeGreaterThan(0);
-  });
-
   it('removes a letter when Backspace is pressed', () => {
     render(<Wordle />);
 

@@ -3,10 +3,18 @@ import { WordleProvider } from './context/WordleContext';
 import { Guesses } from './Guesses';
 import { Keyboard } from './Keyboard';
 import { useWordleDispatch, useWordleState } from './context/useWordle';
+import { ScoreSubmit } from '#shared/components/index';
+import { ROWS } from '#shared/constants';
 
 const WordleGame: React.FC = () => {
-  const { addLetter, removeLetter, submitGuess } = useWordleDispatch();
-  const { gameStatus, word } = useWordleState();
+  const { addLetter, removeLetter, submitGuess, restartGame } =
+    useWordleDispatch();
+  const { gameStatus, word, currentRow } = useWordleState();
+
+  const score =
+    gameStatus !== 'playing'
+      ? Math.round(((ROWS - currentRow) / ROWS) * 1000)
+      : 0;
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -32,13 +40,23 @@ const WordleGame: React.FC = () => {
 
   return (
     <div className="max-w-screen overflow-x-auto">
-      {gameStatus === 'won' && <p className="won">You won!</p>}
-      {gameStatus === 'lost' && (
-        <p className="lost">Game over! The word was: {word}</p>
+      {gameStatus === 'won' && (
+        <div className="wordle-result">
+          <p className="won">You won!</p>
+          <ScoreSubmit gameSlug="wordle" score={score} onDone={restartGame} />
+        </div>
       )}
-      <Keyboard>
-        <Guesses />
-      </Keyboard>
+      {gameStatus === 'lost' && (
+        <div className="wordle-result">
+          <p className="lost">Game over! The word was: {word}</p>
+          <ScoreSubmit gameSlug="wordle" score={score} onDone={restartGame} />
+        </div>
+      )}
+      {gameStatus === 'playing' && (
+        <Keyboard>
+          <Guesses />
+        </Keyboard>
+      )}
     </div>
   );
 };
