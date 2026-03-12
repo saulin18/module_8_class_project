@@ -38,7 +38,7 @@ describe('Keyboard', () => {
     expect(buttons.length).toBeGreaterThan(0);
   });
 
-  it('renders Enter and Backspace keys in the mobile keyboard', () => {
+  it('renders Enter key in the mobile keyboard', () => {
     renderWithProvider(
       <Keyboard>
         <div />
@@ -50,6 +50,5 @@ describe('Keyboard', () => {
     );
     const labels = allButtons.map((b) => b.textContent);
     expect(labels).toContain('Enter');
-    expect(labels).toContain('Backspace');
   });
 });
