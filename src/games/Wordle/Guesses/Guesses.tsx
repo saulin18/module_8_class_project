@@ -1,6 +1,6 @@
 import { useWordleState } from '../context';
 import { CellComponent } from './Cell';
-import keyboardStyles from '../Keyboard/Keyboard.module.css';
+import { keyboardStyles } from '../Keyboard';
 
 export const Guesses: React.FC = () => {
   const { guesses } = useWordleState();
