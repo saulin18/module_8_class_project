@@ -1,8 +1,10 @@
 .games-wrapper {
   --separation: 40px;
+  color: inherit;
   position: absolute;
   top: 0;
   left: 0;
+  color: #333;
   padding: var(--separation);
   display: flex;
   justify-content: center;

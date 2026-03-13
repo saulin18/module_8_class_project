@@ -1,5 +1,20 @@
 import type { Cell } from '#shared/types';
 
-export const CellComponent: React.FC<Cell> = ({ letter, state }) => {
-  return <div className={`box ${state}`}>{letter}</div>;
+type Props = Cell & { className?: string };
+
+export const CellComponent: React.FC<Props> = ({
+  letter,
+  state,
+  className,
+}) => {
+  const resolvedClassName = className ?? `box ${state}`;
+  return (
+    <div
+      className={resolvedClassName}
+      data-testid="wordle-cell"
+      data-state={state}
+    >
+      {letter}
+    </div>
+  );
 };

@@ -19,7 +19,9 @@ describe('Wordle Game', () => {
 
   it('renders the Guesses component', () => {
     render(<Wordle />);
-    expect(document.querySelector('.box')).toBeInTheDocument();
+    expect(
+      document.querySelector('[data-testid="wordle-cell"]'),
+    ).toBeInTheDocument();
   });
 
   it('renders the Keyboard component', () => {
@@ -34,7 +36,7 @@ describe('Wordle Game', () => {
 
     fireEvent.keyDown(window, { key: 'a' });
 
-    const cells = document.querySelectorAll('.box');
+    const cells = document.querySelectorAll('[data-testid="wordle-cell"]');
     expect(cells[0].textContent).toBe('A');
   });
 
@@ -46,7 +48,7 @@ describe('Wordle Game', () => {
     fireEvent.keyDown(window, { key: 'c', metaKey: true });
     fireEvent.keyDown(window, { key: 'd', shiftKey: true });
 
-    const cells = document.querySelectorAll('.box');
+    const cells = document.querySelectorAll('[data-testid="wordle-cell"]');
     expect(cells[0].textContent).toBe('');
   });
 
@@ -56,7 +58,7 @@ describe('Wordle Game', () => {
     fireEvent.keyDown(window, { key: 'a' });
     fireEvent.keyDown(window, { key: 'Backspace' });
 
-    const cells = document.querySelectorAll('.box');
+    const cells = document.querySelectorAll('[data-testid="wordle-cell"]');
     expect(cells[0].textContent).toBe('');
   });
 

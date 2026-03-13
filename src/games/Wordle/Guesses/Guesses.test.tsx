@@ -9,7 +9,9 @@ const renderWithProvider = (ui: React.ReactElement) =>
 describe('Guesses', () => {
   it('renders the Guesses component', () => {
     renderWithProvider(<Guesses />);
-    expect(document.querySelector('.box')).toBeInTheDocument();
+    expect(
+      document.querySelector('[data-testid="wordle-cell"]'),
+    ).toBeInTheDocument();
   });
 
   it('renders 6 rows for guesses', () => {
@@ -20,15 +22,15 @@ describe('Guesses', () => {
 
   it('renders 5 cells per row', () => {
     renderWithProvider(<Guesses />);
-    const cells = document.querySelectorAll('.box');
+    const cells = document.querySelectorAll('[data-testid="wordle-cell"]');
     expect(cells.length).toBe(30);
   });
 
   it('initializes all cells with empty letter and none state', () => {
     renderWithProvider(<Guesses />);
-    const cells = document.querySelectorAll('.box');
+    const cells = document.querySelectorAll('[data-testid="wordle-cell"]');
     cells.forEach((cell) => {
-      expect(cell).toHaveClass('none');
+      expect(cell).toHaveAttribute('data-state', 'none');
     });
   });
 });
