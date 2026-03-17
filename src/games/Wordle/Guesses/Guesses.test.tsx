@@ -1,7 +1,7 @@
 import { describe, it, expect } from 'vitest';
 import { render } from '@testing-library/react';
 import { Guesses } from './Guesses';
-import { WordleContext } from '../context';
+import { WordleContext } from '../WordleContext';
 
 const renderWithProvider = (ui: React.ReactElement) =>
   render(<WordleContext>{ui}</WordleContext>);

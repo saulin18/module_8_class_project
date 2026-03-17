@@ -2,7 +2,7 @@ import type React from 'react';
 import { KEYBOARD } from './constants';
 import styles from './Keyboard.module.css';
 import { Key } from './Key';
-import { useWordleState } from '../context';
+import { useWordleState } from '../useWordle';
 
 interface Props {
   children: React.ReactNode;
@@ -33,7 +33,7 @@ export const Keyboard: React.FC<Props> = ({ children }) => {
           </div>
         ))}
       </div>
-      <div className="guess-container">
+      <div className={styles['guess-container']}>
         <div className={styles['scrollable-grid']}>{children}</div>
         <div className={styles['whole-keyboard']}>
           {KEYBOARD.reduce((acc: string[][], current, index) => {

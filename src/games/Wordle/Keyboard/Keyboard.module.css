@@ -17,38 +17,6 @@
   font-size: 10px;
 }
 
-.box {
-  padding: 10px;
-  margin: 2px;
-  border: 2px solid black;
-  border-radius: 10px;
-  height: 5vh;
-  width: 3vw;
-  font-size: large;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.box:hover {
-  background-color: #e9e8e8;
-  cursor: pointer;
-}
-
-.box.correct {
-  background-color: rgb(135, 236, 95);
-  color: white;
-}
-
-.box.exist {
-  background-color: rgb(214, 140, 55);
-  color: white;
-}
-.box.non-exist {
-  background-color: rgb(95, 73, 73);
-  color: white;
-}
-
 .key-wide {
   min-width: 55px;
   font-size: 11px;
@@ -68,6 +36,13 @@
 .used-correct {
   background-color: rgb(135, 236, 95);
   color: white;
+}
+
+.guess-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
 }
 
 @media screen and (max-width: 768px) {

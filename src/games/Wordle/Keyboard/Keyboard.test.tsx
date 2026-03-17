@@ -1,7 +1,7 @@
 import { describe, it, expect } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import { Keyboard } from './Keyboard';
-import { WordleContext } from '../context';
+import { WordleContext } from '../WordleContext';
 import styles from './Keyboard.module.css';
 
 const renderWithProvider = (ui: React.ReactElement) =>

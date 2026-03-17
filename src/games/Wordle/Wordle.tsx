@@ -1,8 +1,8 @@
 import { useEffect } from 'react';
-import { WordleContext } from './context';
+import { WordleContext } from './WordleContext';
 import { Guesses } from './Guesses';
 import { Keyboard } from './Keyboard';
-import { useWordleDispatch, useWordleState } from './context';
+import { useWordleDispatch, useWordleState } from './useWordle';
 import { ScoreSubmit } from '#shared/components/index';
 import { ROWS } from '#shared/constants';
 import styles from './Wordle.module.css';
@@ -42,14 +42,14 @@ const WordleGame: React.FC = () => {
   return (
     <div className="max-w-screen overflow-x-auto">
       {gameStatus === 'won' && (
-        <div className="wordle-result">
-          <p className={styles.won}>You won!</p>
+        <div>
+          <p className={styles['won']}>You won!</p>
           <ScoreSubmit gameSlug="wordle" score={score} onDone={restartGame} />
         </div>
       )}
       {gameStatus === 'lost' && (
-        <div className="wordle-result">
-          <p className={styles.lost}>Game over! The word was: {word}</p>
+        <div>
+          <p className={styles['lost']}>Game over! The word was: {word}</p>
           <ScoreSubmit gameSlug="wordle" score={score} onDone={restartGame} />
         </div>
       )}

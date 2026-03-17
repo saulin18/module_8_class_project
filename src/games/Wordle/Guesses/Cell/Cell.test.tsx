@@ -12,19 +12,19 @@ describe('CellComponent', () => {
   it('applies correct state class', () => {
     render(<CellComponent letter="" state="correct" />);
     const cell = document.querySelector('.box');
-    expect(cell).toHaveClass('box correct');
+    expect(cell).toHaveClass('box', 'correct');
   });
 
   it('applies exist state class', () => {
     render(<CellComponent letter="" state="exist" />);
     const cell = document.querySelector('.box');
-    expect(cell).toHaveClass('box exist');
+    expect(cell).toHaveClass('box', 'exist');
   });
 
   it('applies none state class', () => {
     render(<CellComponent letter="" state="none" />);
     const cell = document.querySelector('.box');
-    expect(cell).toHaveClass('box none');
+    expect(cell).toHaveClass('box', 'none');
   });
 
   it('renders content based on letter prop', () => {
